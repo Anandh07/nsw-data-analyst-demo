@@ -10,10 +10,10 @@ The hosted page brings everything together: an embedded Power BI dashboard, live
 
 ## 📁 What’s Included
 
-- **Power BI Dashboard** (`SalesDashboard.pbix`):  
+- **Power BI Dashboard** (`Demo Sales Dashboard.pbix`):  
   Visual report built with mock sales data, showing KPIs, product trends, and spatial insights by Australian states.
 
-- **Mock Dataset** (`mock_sales_data.csv`):  
+- **Mock Dataset** (`Sales_data.csv`):  
   Simulated sales data used to generate the Power BI dashboard.
 
 - **Web Integration** (`index.html`):  
