@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>End-to-End Sales Dashboard by Anandh</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #002664; 
+      color: white;
+      padding: 1rem 0;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    header p {
+      margin: 0.3rem 0 0;
+      font-size: 1rem;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    h2 {
+      color: #002664;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin: 1rem 0;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.85rem;
+      color: #777;
+      border-top: 1px solid #ddd;
+      background-color: #f0f0f0;
+    }
+
+    a.download {
+      display: inline-block;
+      margin-top: 0.8rem;
+      background-color: #002664;
+      color: white;
+      padding: 0.6rem 1rem;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    a.download:hover {
+      background-color: #001d4a;
+    }
+
+    #api-data {
+      background: #fff;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 0.95rem;
+      margin-top: 1rem;
+    }
+
+    code {
+      background: #eef1f6;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-size: 0.95em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Sales Dashboard Project – End-to-End Demo</h1>
+    <p>By Anandh Kumar Mallika Boobalan</p>
+  </header>
+
+  <section>
+    <h2>Overview</h2>
+    <p>
+      This project demonstrates an end-to-end technical solution, combining data analysis, dashboarding, API integration, and web presentation — aligned with the responsibilities of a Data Analyst role in a public sector context.
+    </p>
+
+    <ul>
+      <li><strong>HTML-based Web Embedding and Presentation:</strong> A static webpage was developed to host and explain the dashboard in a structured, reader-friendly format.</li>
+      <li><strong>Power BI Dashboard:</strong> Created using mock sales data, it includes KPIs, revenue trends, product analysis, and regional insights with spatial visuals.</li>
+      <li><strong>API Integration and Live Data Rendering:</strong> JavaScript is used to fetch product data from a public API and display it in real-time, simulating external data pull scenarios.</li>
+    </ul>
+
+    <p>
+      Together, these elements reflect a holistic understanding of data storytelling, stakeholder communication, and platform integration.
+    </p>
+
+    <h2>Power BI Dashboard</h2>
+    <p>The following interactive dashboard visualizes sales and revenue data across multiple states with filterable dimensions:</p>
+
+<iframe title="Demo Sales Dashboard" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiYzljMDlkNjMtYjU4Ni00Y2JmLWI0MDEtYzU0YjBkOGZhMmQyIiwidCI6ImMxYmQxMDYwLTEzNjMtNGE2Zi1hYzFkLWE1Y2NlNWJjZTY2YSJ9&pageName=c7338194183c4017e0bb" frameborder="0" allowFullScreen="true"></iframe>
+
+    <a class="download" href="Demo Sales Dashboard.pbix" download>Download .pbix File</a>
+    <br>
+    <a class="download" href="Sales_data.csv" download>Download Mock Dataset (CSV)</a>
+
+    <h2>Live API Demonstration</h2>
+    <p>
+      This section demonstrates a simple integration of a public API using JavaScript's <code>fetch()</code> method. The page connects to <a href="https://fakestoreapi.com" target="_blank">Fake Store API</a> and retrieves a list of product data in JSON format. The results are dynamically displayed below without refreshing the page.
+    </p>
+
+    <p>
+      This simulates a real-world use case where external data is fetched and rendered within a webpage — a valuable concept for embedding real-time feeds or integrating internal systems.
+    </p>
+
+    <div id="api-data">Loading product data...</div>
+
+    <script>
+      fetch('https://fakestoreapi.com/products?limit=3')
+        .then(res => res.json())
+        .then(data => {
+          let html = '<ul>';
+          data.forEach(product => {
+            html += `<li><strong>${product.title}</strong> – $${product.price}</li>`;
+          });
+          html += '</ul>';
+          document.getElementById('api-data').innerHTML = html;
+        })
+        .catch(err => {
+          document.getElementById('api-data').innerText = 'Failed to load API data.';
+        });
+    </script>
+
+    <a class="download" href="fetch-api-demo.js" download>Download API Integration Code (JS)</a>
+
+    <h2>Tech Stack</h2>
+    <ul>
+      <li><strong>Power BI:</strong> Data transformation, visual analytics, spatial mapping</li>
+      <li><strong>HTML/CSS/JS:</strong> Front-end presentation and API integration</li>
+      <li><strong>Mock Dataset:</strong> Product sales and revenue by state, used for demonstration purposes</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Created by Anandh for NSW Department of Education Interview – May 2025</p>
+  </footer>
+
+</body>
+</html>
